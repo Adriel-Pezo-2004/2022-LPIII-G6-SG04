@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package practica10;
 
-/**
- *
- * @author Usuario
- */
 public class App3 {
 
     public static void main(String[] args) throws Exception {
-        Integer[] intArray = { 1, 2, 3};
+        Integer[] intArray = { 1, 2, 3 };
         Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4, 5.5 };
         Character[] charArray = { 'H', 'O', 'L', 'A' };
 
@@ -22,16 +15,13 @@ public class App3 {
         System.out.printf("%nArray charArray contiene:%n");
         imprimirArray(charArray);
 
-        
         System.out.println("\n");
         System.out.printf("\ncharArray: ");
-        imprimirArray(charArray, 0, 3);
+        imprimirArray(charArray, 1, 2);
         System.out.printf("%ndoubleArray: ");
         imprimirArray(doubleArray, 4, 4);
         System.out.printf("\nintegerArray: ");
         imprimirArray(intArray, 1, 1);
-        
-        
 
     }
 
@@ -41,7 +31,7 @@ public class App3 {
         System.out.println();
 
     }
-    
+
     public static void validarLimites(int longitud, int limiteInferior, int limiteSuperior)
             throws LimiteInvalidoException {
         if (limiteInferior < 0 || limiteInferior > longitud || limiteSuperior < 0 || limiteSuperior > longitud
@@ -56,7 +46,7 @@ public class App3 {
         try {
             validarLimites(longit, limiteInferior, limiteSuperior);
             System.out.print(limiteInferior + " - " + limiteSuperior + ": \n");
-            for (int i=limiteInferior; i <= limiteSuperior; i++) {
+            for (int i = limiteInferior; i <= limiteSuperior; i++) {
                 System.out.print(inputArray[i] + " ");
             }
 
@@ -65,13 +55,12 @@ public class App3 {
         }
     }
 
-    
-
 }
 
 class LimiteInvalidoException extends IndexOutOfBoundsException {
     public LimiteInvalidoException() {
     }
+
     public LimiteInvalidoException(String mensajeError) {
         super(mensajeError);
     }
