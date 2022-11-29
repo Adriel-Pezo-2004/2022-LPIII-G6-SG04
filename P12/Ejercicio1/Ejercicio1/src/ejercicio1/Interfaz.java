@@ -14,7 +14,6 @@ public class Interfaz extends javax.swing.JFrame {
     Connection con;
     ResultSet rs;
     
-    
     public Interfaz() {
         initComponents();
         try{
@@ -246,35 +245,38 @@ public class Interfaz extends javax.swing.JFrame {
             else{
                 if(leerQuery().toUpperCase().contains("WHERE")) mensaje("La clausula 'WHERE' se debe poner solamente en el campo de filter");
                 else{
-                    if (leerFilter().toUpperCase().contains("SELECT")){
-                        mensaje("La clausula 'SELECT' se debe de poner en el campo de Query");
-                    }
-                    else if (leerFilter().toUpperCase().contains("UPDATE")){
-                        mensaje("La clausula 'UPDATE' se debe de poner en el campo de Query");
-                    }
-                    else if (leerFilter().toUpperCase().contains("DELETE")){
-                        mensaje("La clausula 'DELETE' se debe de poner en el campo de Query");
-                    }else{
-                        if(leerFilter().toUpperCase().contains("WHERE")){
-                            switch (identificadorClausula()) {
-                            case 1:
-                                rs=stmt.executeQuery(leerQuery()+" "+leerFilter());
-                                comandoLista(rs);
-                                break;
-                            case 2:
-                                stmt.executeUpdate(leerQuery()+" "+leerFilter());
-                                con.commit();
-                                actualizarLista();
-                                break;
-                            case 3:
-                                mensaje("El comando no tiene ninguna clausula válida para ejecutar");
-                                break;
-                            case 0:
-                                mensaje("Ocurrio un error al momento de leer las clausulas");
-                                break;
-                            }
+                    if(leerQuery().toUpperCase().contains("INSERT")) mensaje("No se puede filtrar con la clausula 'INSERT'");
+                    else{
+                        if (leerFilter().toUpperCase().contains("SELECT")){
+                            mensaje("La clausula 'SELECT' se debe de poner en el campo de Query");
+                        }
+                        else if (leerFilter().toUpperCase().contains("UPDATE")){
+                            mensaje("La clausula 'UPDATE' se debe de poner en el campo de Query");
+                        }
+                        else if (leerFilter().toUpperCase().contains("DELETE")){
+                            mensaje("La clausula 'DELETE' se debe de poner en el campo de Query");
                         }else{
-                            mensaje("Falta colocar la clausula 'WHERE'");
+                            if(leerFilter().toUpperCase().contains("WHERE")){
+                                switch (identificadorClausula()) {
+                                case 1:
+                                    rs=stmt.executeQuery(leerQuery()+" "+leerFilter());
+                                    comandoLista(rs);
+                                    break;
+                                case 2:
+                                    stmt.executeUpdate(leerQuery()+" "+leerFilter());
+                                    con.commit();
+                                    actualizarLista();
+                                    break;
+                                case 3:
+                                    mensaje("El comando no tiene ninguna clausula válida para ejecutar");
+                                    break;
+                                case 0:
+                                    mensaje("Ocurrio un error al momento de leer las clausulas");
+                                    break;
+                                }
+                            }else{
+                                mensaje("Falta colocar la clausula 'WHERE'");
+                            }
                         }
                     }
                 }
@@ -294,6 +296,10 @@ public class Interfaz extends javax.swing.JFrame {
             }
             else if (leerQuery().toUpperCase().contains("DELETE")){
                 return 2;
+                
+            }else if (leerQuery().toUpperCase().contains("INSERT")){
+                return 2;
+                
             }else{
                 return 3;
             }

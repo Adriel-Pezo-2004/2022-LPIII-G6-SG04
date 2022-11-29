@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Ejercicio1;
 
 /**
  *
  * @author Usuario
  */
-public class Chocolates extends Goodies{
+public class Chocolates extends Goodies {
 	private String sabor;
 
 	public Chocolates(int id, String descripition, float price, String sabor) {
@@ -23,19 +22,19 @@ public class Chocolates extends Goodies{
 	public void setSabor(String sabor) {
 		this.sabor = sabor;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Chocolates) {
 			Chocolates ChocolatesComparar = (Chocolates) obj;
-			return  this.sabor.equals(ChocolatesComparar.sabor);
+			return this.sabor.equals(ChocolatesComparar.sabor);
 		}
 		return false;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString()+"\tSabor: " + this.sabor;
+		return super.toString() + "\tSabor: " + this.sabor;
 	}
-	
+
 }

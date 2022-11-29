@@ -2,17 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Ejercicio1;
-
 /**
  *
  * @author Usuario
  */
-public class Sweet extends Biscuits{
+public class Sweet extends Biscuits {
 	private double cantAzucar;
 
 	public Sweet(int id, float price, String forma, double cantAzucar) {
-		super(id, price,"Dulce", forma);
+		super(id, price, "Dulce", forma);
 		this.cantAzucar = cantAzucar;
 	}
 
@@ -26,9 +24,9 @@ public class Sweet extends Biscuits{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof  Sweet) {
+		if (obj instanceof Sweet) {
 			Sweet sodaComparar = (Sweet) obj;
-			return  this.cantAzucar == sodaComparar.cantAzucar
+			return this.cantAzucar == sodaComparar.cantAzucar
 					&& this.getForma().equals(sodaComparar.getForma());
 		}
 		return false;
@@ -36,7 +34,7 @@ public class Sweet extends Biscuits{
 
 	@Override
 	public String toString() {
-		return super.toString()+"\tCantidad de Azucar: " + this.cantAzucar ;
+		return super.toString() + "\tCantidad de Azucar: " + this.cantAzucar;
 	}
 
 }

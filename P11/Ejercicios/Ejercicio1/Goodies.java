@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Ejercicio1;
 
 /**
  *
@@ -42,7 +41,7 @@ public class Goodies implements Comparable {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Goodies) {
@@ -51,24 +50,24 @@ public class Goodies implements Comparable {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int compareTo(Object obj) {
 		Goodies goodiesComp = (Goodies) obj;
 		if (this.price == goodiesComp.getPrice())
 			return 0;
 		else {
-			if(this.price > goodiesComp.getPrice())
+			if (this.price > goodiesComp.getPrice())
 				return 1;
 			else
 				return -1;
 		}
 	}
-	
-	//To String
+
+	// To String
 	@Override
 	public String toString() {
-		return "ID : " + this.id + "\nDescripition : " + this.descripition 
+		return "ID : " + this.id + "\nDescripition : " + this.descripition
 				+ "\nPrice : " + this.price;
 	}
 

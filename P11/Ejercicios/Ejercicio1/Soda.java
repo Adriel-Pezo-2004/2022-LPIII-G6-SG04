@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Ejercicio1;
 
 /**
  *
@@ -28,15 +27,15 @@ public class Soda extends Biscuits {
 	public boolean equals(Object obj) {
 		if (obj instanceof Soda) {
 			Soda sodaComparar = (Soda) obj;
-			return  this.cantSal == sodaComparar.cantSal
+			return this.cantSal == sodaComparar.cantSal
 					&& this.getForma().equals(sodaComparar.getForma());
 		}
 		return false;
 	}
-	
+
 	@Override
 	public String toString() {
-		return super.toString()+"\tCantidad Sal : " + this.cantSal ;
+		return super.toString() + "\tCantidad Sal : " + this.cantSal;
 	}
-	
+
 }

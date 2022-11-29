@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Ejercicio1;
 
 /**
  *
@@ -23,18 +22,18 @@ public class CandyBags extends Bag<Goodies> {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	
+
 	public Goodies cheapest() {
 		Goodies[] list = this.getList();
 		Goodies menor = list[0];
-		for (int i=0; i < list.length-1; i++) {
-			if(list[i].compareTo(menor) < 0) {
-				menor = list[i];	
+		for (int i = 0; i < list.length - 1; i++) {
+			if (list[i].compareTo(menor) < 0) {
+				menor = list[i];
 			}
 		}
 		return menor;
 	}
-	
+
 	public CandyBags mostExpensive(int n) {
 		Goodies[] list = this.getList();
 		burbujaDescendente(list);
@@ -42,25 +41,25 @@ public class CandyBags extends Bag<Goodies> {
 		for (int i = 0; i < n; i++) {
 			list2[i] = list[i];
 		}
-		CandyBags b1 = new CandyBags(n,this.marca);
+		CandyBags b1 = new CandyBags(n, this.marca);
 		b1.setList(list2);
 		b1.setCount(n);
 		return b1;
 	}
-	
-	public static void burbujaDescendente(Goodies array []) {
+
+	public static void burbujaDescendente(Goodies array[]) {
 		for (int i = 0; i < array.length; i++) {
-			for(int j = 0; j < array.length - 1; j++) {
-				Goodies elemActual = array[j], 
-						elemSiguiente = array[j+1];
-				if(elemActual.compareTo(elemSiguiente) < 0) {
+			for (int j = 0; j < array.length - 1; j++) {
+				Goodies elemActual = array[j],
+						elemSiguiente = array[j + 1];
+				if (elemActual.compareTo(elemSiguiente) < 0) {
 					array[j] = elemSiguiente;
-					array[j+1] = elemActual;
+					array[j + 1] = elemActual;
 				}
 			}
 		}
 	}
-		
+
 	@Override
 	public String toString() {
 		return super.toString() + "\nMarca: " + this.marca;
